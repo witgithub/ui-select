@@ -1,10 +1,13 @@
-<div class="box">
-    <div *ngIf="showLabel">{{label}}</div>
-    <div class="overflow-scroll">
-      <!--<div class="option" (click)="selectToggle()">{{startData}}<span class="dropdown">v</span></div>-->
-      <div *ngIf="showSearch" (click)="selectToggle()" class="input-box option"><input placeholder="{{startData}}" (input)="search($event.target.value)"><span class="dropdown">v</span></div>
+<div class="select__container">
+    <div *ngIf="showLabel">{{ label }}</div>
+    <div *ngIf="emptySelect" class="option">{{ startData }}</div>
+    <div *ngIf="!emptySelect" class="overflow-scroll"> 
+      <div *ngIf="showSearch" (click)="selectToggle()" class="input__box">
+        <input [placeholder]="startData" (input)="search($event.target.value)">
+        <span class="dropdown__trigger">&#x25BC;</span>
+      </div>
       <div *ngIf="showSelect">
-        <div class="option"   *ngFor="let item of tempData" (click)="selectValue(item)">{{item[showPropertyName]}}</div>
+        <div class="option" *ngFor="let item of tempData" (click)="selectValue(item)">{{ item[showPropertyName] }}</div>
       </div>
     </div>
 </div>

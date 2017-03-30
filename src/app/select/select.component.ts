@@ -17,13 +17,16 @@ export class SelectComponent implements OnInit {
   @Input() emitPropertyName: string = 'id';
   @Input() showSearch: boolean = false;
   @Input() showLabel: boolean = false;
+  emptySelect: boolean;
 
   constructor() { }
 
   ngOnInit() {
-    if(this.data.length > 0){
+    if (this.data.length > 0) {
     this.tempData = this.data;
     this.startData = this.data[0][this.showPropertyName];
+    }else {
+      this.emptySelect = true;
     }
   }
   selectToggle(): void {
@@ -38,7 +41,7 @@ export class SelectComponent implements OnInit {
     this.tempData = this.data.filter(item => {
      return item[this.showPropertyName].toString().toLowerCase().indexOf(query.toString().toLowerCase()) > -1;
     });
-    if(this.tempData.length === 0){
+    if (this.tempData.length === 0) {
       this.startData = ' ';
     }else{
       this.startData = this.tempData[0][this.showPropertyName];

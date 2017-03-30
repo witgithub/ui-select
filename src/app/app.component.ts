@@ -13,7 +13,7 @@ export class AppComponent {
   label = "label from parent";
 
   dataEmpty = [{},{}];
-
+  emptyArr = [];
   dataObjects=[{id: 1, name:"witek"},{id: 2, name:"antek"},{id: 3, name:"roman"},
   {id: 4, name:"janusz"},{id: 5, name:"andrzej"},{id: 6, name:"romek"},{id: 7, name:"ziutek"}];
 
