@@ -7,16 +7,16 @@ import { Component, OnInit,Input, Output,EventEmitter } from '@angular/core';
 })
 export class SelectComponent implements OnInit {
 
-  @Input() data:any[] = [];
-  tempData:any[];
-  @Output() dataChange:any = new EventEmitter<any>();
-  showSelect:boolean;
-  startData:string | number;
-  @Input() label:string = 'label';
-  @Input() showPropertyName:string = 'name';
-  @Input() emitPropertyName:string = 'id';
-  @Input() showSearch:boolean = false;
-  @Input() showLabel:boolean = false;
+  @Input() data: any[] = [];
+  tempData: any[];
+  @Output() dataChange: any = new EventEmitter<any>();
+  showSelect: boolean;
+  startData: string | number;
+  @Input() label: string = 'label';
+  @Input() showPropertyName: string = 'name';
+  @Input() emitPropertyName: string = 'id';
+  @Input() showSearch: boolean = false;
+  @Input() showLabel: boolean = false;
 
   constructor() { }
 
@@ -26,15 +26,15 @@ export class SelectComponent implements OnInit {
     this.startData = this.data[0][this.showPropertyName];
     }
   }
-  selectToggle(): void{
+  selectToggle(): void {
     this.showSelect ? this.showSelect = false : this.showSelect = true;
   }
-  selectValue(item): void{
+  selectValue(item): void {
     this.showSelect = false;
     this.startData = item[this.showPropertyName];
     this.dataChange.emit(item[this.emitPropertyName]);
   }
-  search(query:string | number) {
+  search(query: string | number) {
     this.tempData = this.data.filter(item => {
      return item[this.showPropertyName].toString().toLowerCase().indexOf(query.toString().toLowerCase()) > -1;
     });
