@@ -1,3 +1,9 @@
 <h1>
-  {{title}}
+  selected value from children: {{title}}
 </h1>
+
+<ui-select  [data]="dataObjects" 
+            [showLabel]="true"
+            [label]="label"
+            [showSearch]="true"
+            (dataChange)="selectValue($event)"></ui-select>
